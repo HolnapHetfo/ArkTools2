@@ -416,7 +416,7 @@ namespace ArkTools3._0
             this.BTNCreate.ShadowDecoration.Parent = this.BTNCreate;
             this.BTNCreate.Size = new System.Drawing.Size(133, 30);
             this.BTNCreate.TabIndex = 8;
-            this.BTNCreate.Text = "Create";
+            this.BTNCreate.Text = "Create ini";
             this.BTNCreate.Click += new System.EventHandler(this.BTNCreate_Click);
             // 
             // Starter
