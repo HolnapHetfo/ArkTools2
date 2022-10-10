@@ -62,7 +62,7 @@ namespace ArkTools3._0
                 string[] beolvas = File.ReadAllLines("settings.szomoroggyameg");
                 for (int i = 0; i < beolvas.Length; i++)
                 {
-                    MessageBox.Show(beolvas[i]);
+                    //MessageBox.Show(beolvas[i]);
                 }
                 if (!beolvas[0].Contains(TXTID.Text))
                 {

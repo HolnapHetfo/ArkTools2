@@ -75,8 +75,12 @@ namespace ArkTools3._0
                 string path = beolvas[1] + @"\Engine\Config\ConsoleVariables.ini";
                 File.WriteAllText(path, alma);
             }
-            
-            
+            else
+            {
+                MessageBox.Show("First, you have to add the folder in the settings!");
+            }
+
+
         }
 
         private void siticoneButton1_Click(object sender, EventArgs e)
@@ -102,17 +106,37 @@ namespace ArkTools3._0
                     File.Copy("PlayerLocalData.arkprofile", path);
                 }
             }
+            else
+            {
+                MessageBox.Show("First, you have to add the folder in the settings!");
+            }
             
         }
 
         private void BTNCharacterek_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("No, you DONT!");
+            return;
+            if (!File.Exists("settings.szomoroggyameg"))
+            {
+                MessageBox.Show("First, you have to add the folder in the settings!");
+                return;
+            }
             string[] beolvas = File.ReadAllLines("settings.szomoroggyameg");
             string path = beolvas[1] + @"\ShooterGame\Content\Localization\Game\global";
             string[] files = new string[8] { "HandwritingDistanceField.uasset", "Roboto18.uasset", "Roboto51.uasset", "Roboto51SlateFont.uasset", "RobotoDistanceField.uasset", "SansationBold18.uasset", "ShooterGame.archive", "ShooterGame.locres" };
 
             for (int i = 0; i < files.Length; i++)
             {
+                if (File.Exists("Chars/" + files[i]))
+                {
+                    MessageBox.Show("File: " + files[i] + " exist!");
+                }
+                else
+                {
+
+                }
+
                 string from = "Chars/" + files[i];
                 string to = path + @"\" + files[i];                
                 if (Directory.Exists(path))
