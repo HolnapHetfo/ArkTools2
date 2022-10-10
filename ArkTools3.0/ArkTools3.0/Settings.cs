@@ -42,7 +42,7 @@ namespace ArkTools3._0
         {
             if (TXTSteamId.Text == null)
             {
-                MessageBox.Show("No Steam Id Found!");
+                MessageBox.Show("No Steam Id Found, Its WIP!");
                 return;
             }
             WebClient wc = new WebClient();
