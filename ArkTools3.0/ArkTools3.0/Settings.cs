@@ -19,6 +19,7 @@ namespace ArkTools3._0
             InitializeComponent();
             if (File.Exists("settings.szomoroggyameg"))
             {
+                string asd = "asd";
                 string[] beolvas = File.ReadAllLines("settings.szomoroggyameg");
                 TXTPath.Text = beolvas[1];
                 TXTID.Text = beolvas[0];
