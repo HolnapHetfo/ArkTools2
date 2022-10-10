@@ -17,9 +17,12 @@ namespace ArkTools3._0
         public Settings()
         {
             InitializeComponent();
-            string[] beolvas = File.ReadAllLines("settings.szomoroggyameg");
-            TXTPath.Text = beolvas[1];
-            TXTID.Text = beolvas[0];
+            if (File.Exists("settings.szomoroggyameg"))
+            {
+                string[] beolvas = File.ReadAllLines("settings.szomoroggyameg");
+                TXTPath.Text = beolvas[1];
+                TXTID.Text = beolvas[0];
+            }            
         }
 
         private void BTNSelectFolder_Click(object sender, EventArgs e)
@@ -37,6 +40,11 @@ namespace ArkTools3._0
 
         private void SteamIdConverter_Click(object sender, EventArgs e)
         {
+            if (TXTSteamId.Text == null)
+            {
+                MessageBox.Show("No Steam Id Found!");
+                return;
+            }
             WebClient wc = new WebClient();
             string url = "https://steamid.io/lookup/" + TXTSteamId.Text;
             string html = wc.DownloadString(url);
@@ -45,13 +53,13 @@ namespace ArkTools3._0
             string[] useridszar = masiksplit[2].Split(':');
             string[] userid = useridszar[2].Split(']');
             TXTID.Text = userid[0];
- 
+            /*
             MessageBox.Show(html);
             MessageBox.Show(split[14]);
             MessageBox.Show(masiksplit[2]);
             MessageBox.Show(useridszar[2]);
             MessageBox.Show("User id: " + userid[0]);
-
+            */
         }
 
         private void BTNSave_Click(object sender, EventArgs e)
